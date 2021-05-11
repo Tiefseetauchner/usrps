@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+          integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <title>USRPSSS</title>
+</head>
+<body>
+<header>
+    <h1>USRPS</h1>
+</header>
+
+<div>
+    <p>The USRPS is amazing and stuff, whatever who cares, here's your data</p>
+
+    <h2>Imaginatively amazing tournament</h2>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+        </tr>
+        </thead>
+        {% for game in games %}
+        <thead>
+        <tr>
+            <td colspan="2">Game 1: {{ game.date }}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ game.player1 }}</td>
+            <td>{{ game.player2 }}</td>
+        </tr>
+        <tr>
+            <td>{{ game.player1Symbol }}</td>
+            <td>{{ game.player2Symbol }}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

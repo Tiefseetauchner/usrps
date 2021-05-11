@@ -18,7 +18,7 @@
 
     <h2>Imaginatively amazing tournament</h2>
     <h3>Game 1:</h3>
-    <p>On 2021-11-25T16:41:15+01:00</p>
+    <p>On </p>
     <table class="pure-table pure-table-bordered">
         <thead>
         <tr>
