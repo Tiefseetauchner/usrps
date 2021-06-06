@@ -1,8 +1,17 @@
 {
-    "name": "richards/usrps",
-    "type": "project",
-    "require": {
-        "doctrine/dbal": "^3.1",
-        "twig/twig": "^3.3"
+  "name": "richards/usrps",
+  "type": "project",
+  "require": {
+    "doctrine/dbal": "^2.13.1",
+    "doctrine/orm": "^2.6.2",
+    "twig/twig": "^3.3"
+  },
+  "autoload": {
+    "psr-0": {
+      "": "src/"
+    },
+    "psr-4": {
+      "": "src/"
     }
+  }
 }

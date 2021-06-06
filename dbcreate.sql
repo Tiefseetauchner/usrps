@@ -1,19 +1,20 @@
 create or replace database usrps;
-
 use usrps;
+
+grant ALL ON usrps.* to dbuser@localhost;
 
 create table players
 (
-    playerId decimal(10, 0) primary key unique,
+    playerId int(10) primary key auto_increment,
     nickname varchar(50) not null
 );
 
 create table gameRounds
 (
-    gameId        decimal(10, 0) primary key,
-    time          datetime       not null   ,
-    player1       decimal(10, 0) not null,
-    player2       decimal(10, 0) not null,
+    gameId        int(10) primary key auto_increment,
+    date          datetime not null,
+    player1       int(10)  not null,
+    player2       int(10)  not null,
     player1Symbol ENUM ('rock', 'paper', 'scissors'),
     player2Symbol ENUM ('rock', 'paper', 'scissors')
 );
