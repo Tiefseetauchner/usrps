@@ -17,13 +17,13 @@ class Player
      * @ORM\GeneratedValue
      * @var int
      */
-    protected $playerId;
+    public $playerId;
 
     /**
      * @ORM\Column(type="string")
      * @var string
      */
-    protected $nickname;
+    public $nickname;
 
     /**
      * Player constructor.

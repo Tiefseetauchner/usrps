@@ -22,31 +22,39 @@ class UsrpsGame
      * @ORM\Column(type="datetime")
      * @var \DateTime
      */
-    protected $date;
+    public $date;
 
     /**
      * @ORM\Column(type="integer")
      * @var int
+     * @ORM\ManyToOne(targetEntity="Player")
+     * @ORM\JoinColumn(name="player1_id", referencedColumnName="playerId")
      */
-    protected $player1;
+    public $player1;
 
     /**
      * @ORM\Column(type="integer")
      * @var int
+     * @ORM\ManyToOne(targetEntity="Player")
+     * @ORM\JoinColumn(name="player2_id", referencedColumnName="playerId")
      */
-    protected $player2;
+    public $player2;
 
     /**
-     * @ORM\Column(type="string", columnDefinition="ENUM('rock', 'paper', 'scissors')")
-     * @var string
+     * @ORM\Column(type="integer")
+     * @var int
+     * @ORM\ManyToOne(targetEntity="RpsSymbol")
+     * @ORM\JoinColumn(name="player1_symbol", referencedColumnName="symbolId")
      */
-    protected $player1Symbol;
+    public $player1Symbol;
 
     /**
-     * @ORM\Column(type="string", columnDefinition="ENUM('rock', 'paper', 'scissors')")
-     * @var string
+     * @ORM\Column(type="integer")
+     * @var int
+     * @ORM\ManyToOne(targetEntity="RpsSymbol")
+     * @ORM\JoinColumn(name="player2_symbol", referencedColumnName="symbolId")
      */
-    protected $player2Symbol;
+    public $player2Symbol;
 
     /**
      * UsrpsGame constructor.
@@ -59,11 +67,11 @@ class UsrpsGame
      */
     public function __construct(\DateTime $date, $player1, $player2, $player1Symbol, $player2Symbol)
     {
-        $this->gameId = $gameId;
         $this->date = $date;
         $this->player1 = $player1;
         $this->player2 = $player2;
         $this->player1Symbol = $player1Symbol;
         $this->player2Symbol = $player2Symbol;
     }
+
 }

@@ -10,6 +10,7 @@ $proxyDir = null;
 $cache = null;
 $useSimpleAnnotationReader = false;
 $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/src"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
+$config->setSQLLogger(new \Doctrine\DBAL\Logging\EchoSQLLogger());
 
 $conn = array(
     'driver' => 'mysqli',

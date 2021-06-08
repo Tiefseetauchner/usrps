@@ -32,25 +32,34 @@ function var_dump_ret($mixed = null)
     return $content;
 }
 
-$query = $entityManager->createQueryBuilder()
-    ->select('*')
-    ->from(UsrpsGame::class, "gr")
+//$query = $entityManager->createQueryBuilder()
+//    ->select('*')
+//    ->from(UsrpsGame::class, "gr")
 //    ->join("gameRounds", "players", "p1", "player1 = p1.playerId")
 //    ->join("gameRounds", "players", "p2", "player2 = p2.playerId")
-    ->getQuery();
+//    ->getQuery();
+//
+//$results = $query->getArrayResult();
+//
+//var_dump_pre($results);
 
-echo "1";
+$gamesRepo = $entityManager->getRepository(UsrpsGame::class);
+$games = $gamesRepo->findAll();
 
-$results = $query->getArrayResult();
+$playerRepo = $entityManager->getRepository(Player::class);
+$players = $playerRepo->findAll();
 
-echo "2";
+$playersCopy = [];
+foreach ($players as $player) {
+    $playersCopy[$player->playerId] = $player;
+}
+$players = $playersCopy;
 
 $loader = new FilesystemLoader('./templates');
 $twig = new Environment($loader);
 
-$games = $results;
-
 $twig->addGlobal("games", $games);
+$twig->addGlobal("players", $players);
 $template = $twig->load('template.twig');
 
 echo $template->render();

@@ -27,13 +27,13 @@
         {% for game in games %}
         <thead>
         <tr>
-            <td colspan="2">Game {{ game.gameId }}: {{ game.date }}</td>
+            <td colspan="2">Game {{ game.gameId }}: {{ game.date|date('d.m.Y H:i:s') }}</td>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>{{ game.player1 }}</td>
-            <td>{{ game.player2 }}</td>
+            <td>{{ players[game.player1].nickname }}</td>
+            <td>{{ players[game.player2].nickname }}</td>
         </tr>
         <tr>
             <td>{{ game.player1Symbol }}</td>
